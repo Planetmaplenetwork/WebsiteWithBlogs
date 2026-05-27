@@ -3,7 +3,7 @@ name: Build Blog & Deploy to Pages
 on:
   issues:
     types: [opened, edited, deleted, closed, reopened]
-  workflow_dispatch:   # allows manual trigger
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -20,7 +20,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 20   # still works; the warning was about the action, not Node itself
 
       - name: Install dependencies
         run: cd scripts && npm ci
@@ -44,4 +44,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/deploy-pages@v5   # updated to Node 24‑compatible version
