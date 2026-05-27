@@ -5,7 +5,7 @@ const path = require("path");
 
 // ─── CONFIGURATION ── change these three values ──────────────
 const OWNER = "A53o";
-const REPO = "BlogPostTest";
+const REPO = "BlogPostTes";
 const YOUR_USERNAME = "A53o";
 // ──────────────────────────────────────────────────────────────
 
@@ -35,7 +35,6 @@ function slugify(title) {
     .substring(0, 60);
 }
 
-// New helper: decode HTML entities
 function decodeHtmlEntities(text) {
   return text
     .replace(/&amp;/g, '&')
@@ -100,15 +99,27 @@ async function generatePosts() {
       const date = post.created_at.split("T")[0];
       const rawMarkdown = post.body || "";
 
+      // ── NEW: Extract the first image from Markdown ───
+      let imageHtml = "";
+      const imgRegex = /!\[[^\]]*\]\(([^)\s]+(?:\s"[^"]*")?)\)/;   // match ![alt](url)
+      const imgMatch = rawMarkdown.match(imgRegex);
+      if (imgMatch) {
+        // imgMatch[1] is the URL (ignoring optional title)
+        const imageUrl = imgMatch[1];
+        imageHtml = `<img src="${imageUrl}" alt="Post preview" class="post-image" loading="lazy">`;
+      }
+      // ──────────────────────────────────────────────────
+
       // Generate clean, plain‑text excerpt
       let rawHtml = md.render(rawMarkdown);
-      let plainText = rawHtml.replace(/<[^>]*>/g, "").trim();   // strip tags
-      plainText = decodeHtmlEntities(plainText);                // decode entities like &amp;
+      let plainText = rawHtml.replace(/<[^>]*>/g, "").trim();
+      plainText = decodeHtmlEntities(plainText);
       let excerpt = plainText.substring(0, 160);
       if (plainText.length > 160) excerpt += "…";
 
       postListHtml += `
         <article class="post-card">
+          ${imageHtml}
           <h2><a href="posts/${slug}.html">${escapeHtml(post.title)}</a></h2>
           <time datetime="${date}">${date}</time>
           <p class="excerpt">${escapeHtml(excerpt)}</p>
