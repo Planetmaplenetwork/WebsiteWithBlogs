@@ -4,7 +4,7 @@
   "description": "Build blog from GitHub Issues",
   "main": "build.js",
   "dependencies": {
-    "@octokit/rest": "^20.0.0",
+    "@octokit/rest": "^22.0.0",
     "markdown-it": "^14.0.0",
     "markdown-to-txt": "^2.0.0"
   }
