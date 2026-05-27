@@ -1,16 +1,11 @@
 {
-  "name": "scripts",
+  "name": "blog-scripts",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "description": "Build blog from GitHub Issues",
+  "main": "build.js",
   "dependencies": {
-    "@octokit/rest": "^22.0.1",
-    "markdown-it": "^14.2.0"
+    "@octokit/rest": "^20.0.0",
+    "markdown-it": "^14.0.0",
+    "markdown-to-txt": "^2.0.0"
   }
 }
