@@ -110,6 +110,28 @@ pre code {
     text-decoration: underline;
 }
 
+/* Copy button */
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3em 0.7em;
+    font-size: 0.8em;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+}
+
+pre:hover .copy-btn,
+.copy-btn:focus {
+    opacity: 1;
+}
+
 footer {
     margin-top: 3rem;
     font-size: 0.85rem;
