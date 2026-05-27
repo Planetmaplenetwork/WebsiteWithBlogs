@@ -119,11 +119,11 @@ async function generatePosts() {
 
   // Load templates (now inside /blogs folder)
   const postTemplate = fs.readFileSync(
-    path.join(__dirname, "..", "blogs", "template.html"),
+    path.join(__dirname, "..", "blog", "template.html"),
     "utf8"
   );
   const blogHomeTemplate = fs.readFileSync(
-    path.join(__dirname, "..", "blogs", "blog-home.html"),
+    path.join(__dirname, "..", "blog", "blog-home.html"),
     "utf8"
   );
 
