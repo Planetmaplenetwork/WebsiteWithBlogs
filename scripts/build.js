@@ -3,10 +3,10 @@ const markdownIt = require("markdown-it");
 const fs = require("fs");
 const path = require("path");
 
-// ─── CONFIGURATION – change these three values ──────────────
-const OWNER = "A53o";          // your GitHub username
-const REPO = "BlogPostTest";                        // this repository name
-const YOUR_USERNAME = "A53o";  // the only allowed issue author
+// ─── CONFIGURATION ── change these three values ──────────────
+const OWNER = "A53o";
+const REPO = "BlogPostTest";
+const YOUR_USERNAME = "A53o";
 // ──────────────────────────────────────────────────────────────
 
 const TOKEN = process.env.GITHUB_TOKEN;
@@ -35,6 +35,16 @@ function slugify(title) {
     .substring(0, 60);
 }
 
+// New helper: decode HTML entities
+function decodeHtmlEntities(text) {
+  return text
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#039;/g, "'");
+}
+
 async function generatePosts() {
   console.log("Fetching issues…");
 
@@ -45,7 +55,6 @@ async function generatePosts() {
     per_page: 100,
   });
 
-  // Security: only your issues
   const myPosts = issues.filter(
     (issue) =>
       issue.user.login === YOUR_USERNAME && !issue.pull_request
@@ -91,8 +100,10 @@ async function generatePosts() {
       const date = post.created_at.split("T")[0];
       const rawMarkdown = post.body || "";
 
-      // Convert Markdown → HTML, then strip all tags to get plain text
-      let plainText = md.render(rawMarkdown).replace(/<[^>]*>/g, "").trim();
+      // Generate clean, plain‑text excerpt
+      let rawHtml = md.render(rawMarkdown);
+      let plainText = rawHtml.replace(/<[^>]*>/g, "").trim();   // strip tags
+      plainText = decodeHtmlEntities(plainText);                // decode entities like &amp;
       let excerpt = plainText.substring(0, 160);
       if (plainText.length > 160) excerpt += "…";
 
