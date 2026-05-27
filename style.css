@@ -25,6 +25,35 @@ time {
     margin-top: 1.5rem;
 }
 
+/* ─── Code blocks ─────────────────────── */
+/* Inline code */
+code {
+    font-family: "Courier New", Courier, monospace;
+    background: #f4f4f4;
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.95em;
+    color: #333;
+}
+
+/* Block code (fenced/indented) */
+pre {
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    line-height: 1.5;
+}
+
+pre code {
+    background: none;   /* override inline code background */
+    padding: 0;         /* override inline padding */
+    font-size: 0.9em;
+    color: #111;
+}
+/* ─────────────────────────────────────── */
+
 /* Post card grid (homepage) */
 .post-grid {
     display: grid;
