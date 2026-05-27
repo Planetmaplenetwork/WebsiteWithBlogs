@@ -25,8 +25,8 @@ time {
     margin-top: 1.5rem;
 }
 
-/* ─── Code blocks ─────────────────────── */
-/* Inline code */
+/* ─── Code styling ─────────────────────── */
+/* Inline code (single backtick) */
 code {
     font-family: "Courier New", Courier, monospace;
     background: #f4f4f4;
@@ -36,7 +36,7 @@ code {
     color: #333;
 }
 
-/* Block code (fenced/indented) */
+/* Block code (triple backtick or indented) */
 pre {
     background: #f7f7f7;
     border: 1px solid #ddd;
@@ -44,13 +44,38 @@ pre {
     padding: 1rem;
     overflow-x: auto;
     line-height: 1.5;
+    position: relative;   /* ← needed for copy button */
+    margin: 1.5rem 0;
 }
 
 pre code {
-    background: none;   /* override inline code background */
-    padding: 0;         /* override inline padding */
+    background: none;
+    padding: 0;
     font-size: 0.9em;
     color: #111;
+}
+
+/* Copy button */
+.copy-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: #007acc;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3em 0.7em;
+    font-size: 0.8em;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+    font-family: inherit; /* so it matches the rest */
+}
+
+pre:hover .copy-btn,
+.copy-btn:focus {
+    opacity: 1;
 }
 /* ─────────────────────────────────────── */
 
@@ -108,28 +133,6 @@ pre code {
 
 .read-more:hover {
     text-decoration: underline;
-}
-
-/* Copy button */
-.copy-btn {
-    position: absolute;
-    top: 8px;
-    right: 8px;
-    background: #007acc;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    padding: 0.3em 0.7em;
-    font-size: 0.8em;
-    cursor: pointer;
-    opacity: 0;
-    transition: opacity 0.2s ease;
-    z-index: 2;
-}
-
-pre:hover .copy-btn,
-.copy-btn:focus {
-    opacity: 1;
 }
 
 footer {
