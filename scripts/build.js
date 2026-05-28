@@ -146,7 +146,7 @@ async function generatePosts() {
   console.log("✔ Generated blog/index.html");
 
   // ─── 3) Latest posts snippet (4) ───
-  const latestPosts = myPosts.slice(0, 4);
+  const latestPosts = myPosts.slice(0, 3);
   let snippetHtml = '<div class="post-grid">';
   const jsonPosts = [];
   for (const post of latestPosts) {

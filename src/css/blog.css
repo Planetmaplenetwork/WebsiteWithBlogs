@@ -1,9 +1,3 @@
-/* ===================================================
-   PlanetMaple Blog – Dark Theme Styles
-   (overrides global.css inside blog content)
-   =================================================== */
-
-/* ===== Blog Container ===== */
 .blog-container {
     max-width: 800px;
     margin: 2rem auto;
@@ -26,7 +20,6 @@
     color: var(--text-400);
 }
 
-/* ===== Back link ===== */
 .back-link {
     display: inline-block;
     margin-bottom: 2rem;
@@ -39,7 +32,6 @@
     color: var(--accent-300);
 }
 
-/* ===== Post meta (date) ===== */
 .post-content > time {
     display: block;
     margin: 0.5rem 0 2rem;
@@ -47,19 +39,13 @@
     font-size: 0.95rem;
 }
 
-/* =================================================================
-   COMPREHENSIVE BLOG POST CONTENT STYLES
-   These rules only apply inside the .post-content <div>
-   ================================================================= */
 .post-content .content {
-    /* Base text reset for the article body */
     color: var(--text-300);
     font-size: 1.05rem;
     line-height: 1.7;
     word-wrap: break-word;
 }
 
-/* ---- Headings ---- */
 .post-content .content h1,
 .post-content .content h2,
 .post-content .content h3,
@@ -80,13 +66,11 @@
 .post-content .content h5 { font-size: 1em; }
 .post-content .content h6 { font-size: 0.9em; color: var(--text-400); }
 
-/* ---- Paragraphs & spacing ---- */
 .post-content .content p {
     margin-bottom: 1.2em;
-    color: var(--text-300);         /* override global p color */
+    color: var(--text-300);
 }
 
-/* ---- Links ---- */
 .post-content .content a {
     color: var(--accent-400);
     text-decoration: underline;
@@ -96,7 +80,6 @@
     color: var(--accent-300);
 }
 
-/* ---- Lists ---- */
 .post-content .content ul,
 .post-content .content ol {
     margin-bottom: 1.2em;
@@ -113,7 +96,6 @@
     color: var(--accent-400);
 }
 
-/* ---- Blockquote ---- */
 .post-content .content blockquote {
     border-left: 4px solid var(--accent-500);
     background: var(--background-900);
@@ -128,7 +110,6 @@
     color: inherit;
 }
 
-/* ---- Images ---- */
 .post-content .content img {
     max-width: 100%;
     height: auto;
@@ -137,7 +118,6 @@
     border: 1px solid var(--background-600);
 }
 
-/* Post preview image */
 .post-image {
     width: 100%;
     height: 180px;
@@ -148,7 +128,6 @@
     display: block;
 }
 
-/* ---- Tables ---- */
 .post-content .content table {
     width: 100%;
     border-collapse: collapse;
@@ -174,14 +153,12 @@
     background: var(--background-900);
 }
 
-/* ---- Horizontal rule ---- */
 .post-content .content hr {
     border: none;
     border-top: 1px solid var(--background-600);
     margin: 2em 0;
 }
 
-/* ---- Inline formatting ---- */
 .post-content .content strong {
     color: var(--text-100);
     font-weight: 600;
@@ -196,7 +173,6 @@
     color: var(--text-500);
 }
 
-/* ---- Inline code (global.css already styles code, but we re-assert) ---- */
 .post-content .content code {
     font-family: "Courier New", Courier, monospace;
     background: var(--background-800);
@@ -207,7 +183,6 @@
     color: var(--text-200);
 }
 
-/* ---- Block code ---- */
 .post-content .content pre {
     background: var(--background-950);
     border: 1px solid var(--background-600);
@@ -227,7 +202,6 @@
     border: none;
 }
 
-/* ---- Copy button (inside pre) ---- */
 .copy-btn {
     position: absolute;
     top: 8px;
@@ -254,12 +228,11 @@ pre:hover .copy-btn,
     background: var(--accent-400);
 }
 
-/* ===== Blog post cards (homepage) ===== */
 .post-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.5rem;
-    margin-top: 2rem;
+    width: 1100px;
 }
 
 .post-card {
@@ -313,7 +286,6 @@ pre:hover .copy-btn,
     color: var(--accent-300);
 }
 
-/* ===== Blog footer ===== */
 .blog-footer {
     text-align: center;
     margin-top: 4rem;

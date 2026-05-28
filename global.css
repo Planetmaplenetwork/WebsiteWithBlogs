@@ -60,26 +60,30 @@
     --accent-800: #17204f;
     --accent-900: #0c1027;
     --accent-950: #060814;
-
-
 }
 
 body {
     background: var(--background-950);
     font-family: Arial, Helvetica, sans-serif;
     font-size: large;
-}
+    width: 90%;
+    margin-inline: auto;
 
 h1 {
     color: var(--primary-300);
 }
 
-h3 {
+h2, h3, h4 {
     color: var(--text-200);
 }
 
 p {
     color: var(--text-400);
+}
+
+hr {
+    color: transparent;
+    border-bottom: 1px solid var(--background-800);
 }
 
 .navbar {
@@ -337,3 +341,4 @@ p {
     color: var(--text-100);
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
+
